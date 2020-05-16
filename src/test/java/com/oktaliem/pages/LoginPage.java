@@ -1,4 +1,4 @@
-package com.oktaliem.pagesobject;
+package com.oktaliem.pages;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;

@@ -1,5 +1,6 @@
-package com.oktaliem;
+package com.oktaliem.testsuit;
 
+import com.oktaliem.User;
 import com.testinium.deviceinformation.DeviceInfo;
 import com.testinium.deviceinformation.DeviceInfoImpl;
 import com.testinium.deviceinformation.device.DeviceType;
@@ -7,24 +8,18 @@ import com.testinium.deviceinformation.exception.DeviceNotFoundException;
 import com.testinium.deviceinformation.model.Device;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
-import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 
 import java.io.IOException;
 import java.net.URL;
 
-/**
- * @Author Okta Liem
- */
-@Feature("Login to Eri Bank")
-public class LoginTestWithTestng {
+public class Preparation {
 
     AppiumDriver driver;
-    User user;
+    User user_is_on;
 
     @Step("Prepare Capabilities")
     @BeforeMethod
@@ -38,15 +33,9 @@ public class LoginTestWithTestng {
         capabilities.setCapability("appPackage", "com.experitest.eribank");
         capabilities.setCapability("appActivity", "com.experitest.ExperiBank.LoginActivity");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-        user = new User(driver);
-    }
-
-    @Test
-    public void loginTest() {
-        user.loginPage().loginToApp();
-//        user.menuPage().landingToMenuPage();
-        user.loginPage().landingToMenuPage();
-        System.out.println("TestNG Status : TEST PASSED");
+        user_is_on = new User(driver);
+        user_is_on.loginPage().loginToApp();
+        user_is_on.loginPage().landingToMenuPage();
     }
 
     @AfterMethod

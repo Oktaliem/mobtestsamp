@@ -1,5 +1,6 @@
-package com.oktaliem;
+package com.oktaliem.testsuit;
 
+import com.oktaliem.User;
 import com.testinium.deviceinformation.exception.DeviceNotFoundException;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;

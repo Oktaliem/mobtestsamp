@@ -1,4 +1,4 @@
-package com.oktaliem.pagesobject;
+package com.oktaliem.pages;
 
 import io.appium.java_client.AppiumDriver;
 import io.qameta.allure.Attachment;
@@ -8,6 +8,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
 
 public class BasePage {
     AppiumDriver driver;
@@ -29,4 +31,11 @@ public class BasePage {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
+    @Step
+    public void staticWait(final long millis) {
+        try {
+            TimeUnit.MILLISECONDS.sleep(millis);
+        } catch (final InterruptedException e) {
+        }
+    }
 }
