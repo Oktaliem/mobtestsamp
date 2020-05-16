@@ -138,6 +138,11 @@
             <artifactId>ashot</artifactId>
             <version>1.5.4</version>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.12.1</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -155,21 +160,35 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.20</version>
+
+<!--              Cucumber JVM Allure Configuration-->
+<!--                <configuration>-->
+<!--                    <testFailureIgnore>true</testFailureIgnore>-->
+<!--                    &lt;!&ndash;<argLine>-Xmx1024m</argLine>&ndash;&gt;-->
+<!--                    <argLine>-Xms4024m -Xmx4024m</argLine>-->
+<!--                    <includes>-->
+<!--                        <exclude>**/CucumberJvmTest</exclude>-->
+<!--                    </includes>-->
+<!--                    <argLine>-->
+<!--                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"-->
+<!--                        -Dcucumber.options="&#45;&#45;plugin io.qameta.allure.cucumberjvm.AllureCucumberJvm"-->
+<!--                    </argLine>-->
+<!--                    <systemPropertyVariables>-->
+<!--                        <allure.results.directory>allure-results</allure.results.directory>-->
+<!--                    </systemPropertyVariables>-->
+<!--                </configuration>-->
+
+                <!--              TestNG Allure Configuration-->
                 <configuration>
-                    <testFailureIgnore>true</testFailureIgnore>
-                    <!--<argLine>-Xmx1024m</argLine>-->
-                    <argLine>-Xms4024m -Xmx4024m</argLine>
-                    <includes>
-                        <exclude>**/CucumberJvmTest</exclude>
-                    </includes>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>TestNG.xml</suiteXmlFile>
+                    </suiteXmlFiles>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                        -Dcucumber.options="--plugin io.qameta.allure.cucumberjvm.AllureCucumberJvm"
                     </argLine>
-                    <systemPropertyVariables>
-                        <allure.results.directory>allure-results</allure.results.directory>
-                    </systemPropertyVariables>
                 </configuration>
+
+
                 <dependencies>
                     <dependency>
                         <groupId>org.aspectj</groupId>

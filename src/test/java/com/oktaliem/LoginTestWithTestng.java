@@ -7,6 +7,8 @@ import com.testinium.deviceinformation.exception.DeviceNotFoundException;
 import com.testinium.deviceinformation.model.Device;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -18,11 +20,13 @@ import java.net.URL;
 /**
  * @Author Okta Liem
  */
+@Feature("Login to Eri Bank")
 public class LoginTestWithTestng {
 
     AppiumDriver driver;
     User user;
 
+    @Step("Prepare Capabilities")
     @BeforeMethod
     public void prepareCapabilities() throws IOException, DeviceNotFoundException {
         DeviceInfo deviceInfo = new DeviceInfoImpl(DeviceType.ANDROID);
@@ -40,6 +44,8 @@ public class LoginTestWithTestng {
     @Test
     public void loginTest() {
         user.loginPage().loginToApp();
+//        user.menuPage().landingToMenuPage();
+        user.loginPage().landingToMenuPage();
         System.out.println("TestNG Status : TEST PASSED");
     }
 
