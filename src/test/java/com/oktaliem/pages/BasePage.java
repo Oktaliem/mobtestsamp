@@ -1,5 +1,6 @@
 package com.oktaliem.pages;
 
+import com.github.javafaker.Faker;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
@@ -13,15 +14,21 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
+import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static io.appium.java_client.touch.WaitOptions.waitOptions;
 import static java.time.Duration.ofMillis;
-
+/**
+ * @Author Okta Liem
+ */
 public class BasePage {
     AppiumDriver driver;
+    Faker testData = new Faker();
 
     @AndroidFindBy(id = "com.experitest.eribank:id/nameTextField")
     protected WebElement name;
@@ -88,6 +95,12 @@ public class BasePage {
     }
 
     @Step
+    public void checkIfTextIsExpected(WebElement element, String expected) {
+        Assert.assertEquals(element.getText(), expected);
+    }
+
+
+    @Step
     public void selectCountry(String country) {
         int count = countryList.size();
         staticWait(1000);
@@ -100,5 +113,16 @@ public class BasePage {
                 break;
             }
         }
+    }
+
+    @Nullable
+    public String getWebContext(AppiumDriver driver) {
+        ArrayList<String> contexts = new ArrayList(driver.getContextHandles());
+        for (String context : contexts) {
+            if (!context.equals("NATIVE_APP")) {
+                return context;
+            }
+        }
+        return null;
     }
 }

@@ -9,6 +9,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import static com.oktaliem.constants.TestData.*;
+/**
+ * @Author Okta Liem
+ */
 public class MakePaymentPage extends BasePage {
 
     public MakePaymentPage(AppiumDriver driver) {
@@ -26,17 +30,17 @@ public class MakePaymentPage extends BasePage {
 
     @Step
     public void inputPaymentInfo() {
-        phoneNum.sendKeys("+2123456");
-        name.sendKeys("Okta Liem");
+        phoneNum.sendKeys(testData.phoneNumber().cellPhone());
+        name.sendKeys(testData.name().fullName());
         amount.sendKeys("1");
-
-        selectCountry("France");
+        selectCountryBtn.click();
+        selectCountry(COUNTRY);
         getScreenShot(driver);
     }
 
     @Step
     public void makePayment() {
-        Assert.assertEquals(ctry.getText(), country);
+        Assert.assertEquals(ctry.getText(), COUNTRY);
         sendPayBtn.click();
         getScreenShot(driver);
         clickConfirmationBtn("Yes");
@@ -82,12 +86,11 @@ public class MakePaymentPage extends BasePage {
     public void checkIfCancelPaymentFormIsSuccessful() {
         staticWait(1000);
         menuPage = new MenuPage(driver);
-        Assert.assertEquals(menuPage.balanceStatus.getText(), "Your balance is: 100.00$");
+        Assert.assertEquals(menuPage.balanceStatus.getText(), ORIGINAL_BALANCE);
         getScreenShot(driver);
     }
 
     @Step
-    @net.thucydides.core.annotations.Step
     public void checkIfCancelPaymentIsSuccessful() {
         Assert.assertEquals(ctry.getText(), country);
         getScreenShot(driver);

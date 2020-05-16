@@ -6,7 +6,9 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-
+/**
+ * @Author Okta Liem
+ */
 public class MenuPage extends BasePage {
 
     public MenuPage(AppiumDriver driver) {

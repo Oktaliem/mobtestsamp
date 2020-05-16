@@ -11,7 +11,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import java.util.List;
-
+/**
+ * @Author Okta Liem
+ */
 public class MortgageRequestPage extends BasePage {
 
     public MortgageRequestPage(AppiumDriver driver) {
@@ -69,11 +71,11 @@ public class MortgageRequestPage extends BasePage {
 
     @Step
     public void inputRequestForm() {
-        name.sendKeys("Jhon");
-        lastName.sendKeys("Lennon");
+        name.sendKeys(testData.name().firstName());
+        lastName.sendKeys(testData.name().lastName());
         age.sendKeys("45");
-        address1.sendKeys("BKL 222 Hongkong");
-        address2.sendKeys("Blk 333 Hongkong");
+        address1.sendKeys(testData.address().fullAddress());
+        address2.sendKeys(testData.address().fullAddress());
         selectCountryBtn.click();
         selectCountry("France");
         getScreenShot(driver);
@@ -95,16 +97,13 @@ public class MortgageRequestPage extends BasePage {
     @Step
     private void selectTypeOfLoan(String loadType) {
         int count = typeOfLoan.size();
-        System.out.println(count);
         staticWait(1000);
         for (int i = 1; i < count; i++) {
-            System.out.println(i);
             WebElement element = driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget." +
                     "LinearLayout/android.widget." +
                     "FrameLayout[2]/android.widget.LinearLayout/android.widget.ScrollView/android.widget." +
                     "LinearLayout/android.widget.ListView[1]/android.widget.CheckedTextView[" + i + "]"));
             if (element.getText().equals(loadType)) {
-                System.out.println("Element found" + element.toString());
                 element.click();
                 break;
             }

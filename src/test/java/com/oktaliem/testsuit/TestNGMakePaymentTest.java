@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
  * @Author Okta Liem
  */
 @Feature("Make Payment")
-public class TestNGMakePaymentSuit extends Preparation {
+public class TestNGMakePaymentTest extends Preparation {
 
     @Test
     public void makePayment() {

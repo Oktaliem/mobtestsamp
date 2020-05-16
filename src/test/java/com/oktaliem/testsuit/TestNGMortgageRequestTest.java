@@ -6,8 +6,8 @@ import org.testng.annotations.Test;
 /**
  * @Author Okta Liem
  */
-@Feature("Make Payment")
-public class TestNGMortgageRequestSuit extends Preparation {
+@Feature("Mortgage Request")
+public class TestNGMortgageRequestTest extends Preparation {
 
     @Test
     public void mortgageRequest() {

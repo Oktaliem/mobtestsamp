@@ -8,6 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import static com.oktaliem.constants.TestData.PASS;
+import static com.oktaliem.constants.TestData.USER_NAME;
+
 /**
  * @Author Okta Liem
  */
@@ -28,10 +31,11 @@ public class LoginPage extends BasePage {
     @AndroidFindBy(id = "com.experitest.eribank:id/loginButton")
     protected WebElement loginBtn;
 
-    @Step @net.thucydides.core.annotations.Step
+    @Step
+    @net.thucydides.core.annotations.Step
     public void loginToApp() {
-        userName.sendKeys("company");
-        password.sendKeys("company");
+        userName.sendKeys(USER_NAME);
+        password.sendKeys(PASS);
         loginBtn.click();
         getScreenShot(driver);
     }
@@ -39,8 +43,8 @@ public class LoginPage extends BasePage {
     @Step
     public void landingToMenuPage() {
         menuPage = new MenuPage(driver);
-        waitUntilElementClickAble(menuPage.logoutBtn,5);
-        Assert.assertEquals(menuPage.logoutBtn.getText(),"Logout");
+        waitUntilElementClickAble(menuPage.logoutBtn, 60);
+        Assert.assertEquals(menuPage.logoutBtn.getText(), "Logout");
         getScreenShot(driver);
     }
 
