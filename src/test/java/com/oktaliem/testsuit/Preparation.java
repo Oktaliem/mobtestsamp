@@ -17,7 +17,6 @@ import java.io.IOException;
 import java.net.URL;
 
 public class Preparation {
-
     AppiumDriver driver;
     User user_is_on;
 
@@ -38,8 +37,11 @@ public class Preparation {
         user_is_on.loginPage().landingToMenuPage();
     }
 
+
     @AfterMethod
     public void teardown() {
         driver.closeApp();
     }
+
+
 }

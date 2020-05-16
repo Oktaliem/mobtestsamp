@@ -28,8 +28,7 @@ public class LoginPage extends BasePage {
     @AndroidFindBy(id = "com.experitest.eribank:id/loginButton")
     protected WebElement loginBtn;
 
-    @Step
-    @net.thucydides.core.annotations.Step
+    @Step @net.thucydides.core.annotations.Step
     public void loginToApp() {
         userName.sendKeys("company");
         password.sendKeys("company");
@@ -38,7 +37,6 @@ public class LoginPage extends BasePage {
     }
 
     @Step
-    @net.thucydides.core.annotations.Step
     public void landingToMenuPage() {
         menuPage = new MenuPage(driver);
         waitUntilElementClickAble(menuPage.logoutBtn,5);

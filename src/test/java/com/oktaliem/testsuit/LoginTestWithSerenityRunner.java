@@ -1,7 +1,6 @@
 package com.oktaliem.testsuit;
 
 import com.oktaliem.User;
-import com.testinium.deviceinformation.exception.DeviceNotFoundException;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import net.serenitybdd.junit.runners.SerenityRunner;
@@ -26,7 +25,7 @@ public class LoginTestWithSerenityRunner {
     User user;
 
     @Before
-    public void prepareCapabilities() throws IOException, DeviceNotFoundException {
+    public void prepareCapabilities() throws IOException{
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("deviceName", "emulator-5554");

@@ -35,9 +35,33 @@ public class MenuPage extends BasePage {
     protected WebElement balanceStatus;
 
     @Step
-    @net.thucydides.core.annotations.Step
     public void goToMakePaymentForm() {
         makePayBtn.click();
         getScreenShot(driver);
     }
+
+    @Step
+    public void goToMortgageRequestForm() {
+        mortgageBtn.click();
+        getScreenShot(driver);
+    }
+
+    @Step
+    public void goToExpenseReportForm() {
+        expenseBtn.click();
+        getScreenShot(driver);
+    }
+
+    @Step
+    public void goToAdvanceActionsForm() {
+        advanceBtn.click();
+        getScreenShot(driver);
+    }
+
+    @Step
+    public void logOut() {
+        logoutBtn.click();
+        getScreenShot(driver);
+    }
+
 }
