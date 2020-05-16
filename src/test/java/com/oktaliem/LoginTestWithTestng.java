@@ -1,6 +1,5 @@
 package com.oktaliem;
 
-
 import com.testinium.deviceinformation.DeviceInfo;
 import com.testinium.deviceinformation.DeviceInfoImpl;
 import com.testinium.deviceinformation.device.DeviceType;
@@ -22,6 +21,7 @@ import java.net.URL;
 public class LoginTestWithTestng {
 
     AppiumDriver driver;
+    User user;
 
     @BeforeMethod
     public void prepareCapabilities() throws IOException, DeviceNotFoundException {
@@ -34,14 +34,14 @@ public class LoginTestWithTestng {
         capabilities.setCapability("appPackage", "com.experitest.eribank");
         capabilities.setCapability("appActivity", "com.experitest.ExperiBank.LoginActivity");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+        user = new User(driver);
     }
 
     @Test
-    public void loginTest() throws InterruptedException {
-        Thread.sleep(10000);
+    public void loginTest() {
+        user.loginPage().loginToApp();
         System.out.println("TestNG Status : TEST PASSED");
     }
-
 
     @AfterMethod
     public void teardown() {
