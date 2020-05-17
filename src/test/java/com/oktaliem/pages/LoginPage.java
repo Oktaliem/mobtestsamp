@@ -34,6 +34,7 @@ public class LoginPage extends BasePage {
     @Step
     @net.thucydides.core.annotations.Step
     public void loginToApp() {
+        waitUntilElementClickAble(userName, 60);
         userName.sendKeys(USER_NAME);
         password.sendKeys(PASS);
         loginBtn.click();

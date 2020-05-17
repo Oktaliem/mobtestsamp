@@ -37,6 +37,7 @@ public class ScanCheckPage extends AdvanceActions{
         getScreenShot(driver);
         shutterBtn.click();
         getScreenShot(driver);
+        waitUntilElementClickAble(doneBtn,60);
         doneBtn.click();
         getScreenShot(driver);
     }

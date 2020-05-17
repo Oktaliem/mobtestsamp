@@ -30,8 +30,11 @@ public class MakePaymentPage extends BasePage {
 
     @Step
     public void inputPaymentInfo() {
-        phoneNum.sendKeys(testData.phoneNumber().cellPhone());
-        name.sendKeys(testData.name().fullName());
+        String pm = testData.phoneNumber().cellPhone();
+        String nm = testData.phoneNumber().cellPhone();
+        waitUntilElementClickAble(phoneNum,60);
+        phoneNum.sendKeys(pm);
+        name.sendKeys(nm);
         amount.sendKeys("1");
         selectCountryBtn.click();
         selectCountry(COUNTRY);

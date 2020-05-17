@@ -26,6 +26,7 @@ public class Preparation {
         DeviceInfo deviceInfo = new DeviceInfoImpl(DeviceType.ANDROID);
         Device device = deviceInfo.getFirstDevice();
         DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("platformVersion", device.getProductVersion());
         capabilities.setCapability("platformName", device.getDeviceProductName());
         capabilities.setCapability("deviceName", device.getUniqueDeviceID());
         capabilities.setCapability("app", System.getProperty("user.dir") + "/src/test/resources/eribank.apk");
@@ -40,7 +41,7 @@ public class Preparation {
 
     @AfterMethod
     public void teardown() {
-        driver.closeApp();
+        driver.quit();
     }
 
 
