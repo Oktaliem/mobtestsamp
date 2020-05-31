@@ -5,7 +5,8 @@
 # Automated Mobile Testing Sample for Android and iOS with Appium
 
 ## Feature
-Allure Report with Screenshot and Video Recording attachment
+- Automated Device Capabilities detection.
+- Allure Report with Screenshot and Video Recording attachment.
 
 ## Android
 ```
