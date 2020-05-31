@@ -7,6 +7,7 @@
 ## Feature
 - Automated Device Capabilities detection.
 - Allure Report with Screenshot and Video Recording attachment.
+- Read a test code like you're speaking to yourself during testing.
 
 ## Android
 ```
