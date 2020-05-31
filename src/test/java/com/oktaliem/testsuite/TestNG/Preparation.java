@@ -1,4 +1,4 @@
-package com.oktaliem.testsuit;
+package com.oktaliem.testsuite.TestNG;
 
 import com.oktaliem.User;
 import com.testinium.deviceinformation.DeviceInfo;

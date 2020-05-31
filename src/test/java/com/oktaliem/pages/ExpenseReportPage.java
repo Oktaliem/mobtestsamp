@@ -35,16 +35,18 @@ public class ExpenseReportPage extends BasePage {
 
 
     @Step
-    public void createExpenseReport() {
+    public ExpenseReportPage createExpenseReport() {
         addBtn.click();
         getScreenShot(driver);
+        return this;
     }
 
     @Step
-    public void expenseReportCreatedSuccessfully() {
+    public ExpenseReportPage expenseReportCreatedSuccessfully() {
         checkIfTextIsExpected(expense2,"Expense : 2");
         checkIfTextIsExpected(detail2,"Detail goes here");
         checkIfTextIsExpected(info2,"Type goes here");
         getScreenShot(driver);
+        return this;
     }
 }

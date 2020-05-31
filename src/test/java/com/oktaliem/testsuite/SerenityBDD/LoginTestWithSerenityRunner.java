@@ -1,4 +1,4 @@
-package com.oktaliem.testsuit;
+package com.oktaliem.testsuite.SerenityBDD;
 
 import com.oktaliem.User;
 import io.appium.java_client.AppiumDriver;

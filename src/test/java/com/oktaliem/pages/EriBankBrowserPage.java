@@ -22,15 +22,16 @@ public class EriBankBrowserPage extends AdvanceActions{
     protected WebElement justOneBtn;
 
     @Step
-    public void openWebBrowser() {
+    public EriBankBrowserPage openWebBrowser() {
         EriBankBrowserBtn.click();
         getScreenShot(driver);
         justOneBtn.click();
         getScreenShot(driver);
+        return this;
     }
 
     @Step
-    public void navigateToExperitestSite() {
+    public EriBankBrowserPage navigateToExperitestSite() {
         staticWait(5000);
         Set<String> contextNames = driver.getContextHandles();
         for (String contextName : contextNames) {
@@ -41,5 +42,6 @@ public class EriBankBrowserPage extends AdvanceActions{
         driver.context((String) contextNames.toArray()[1]);
         driver.getCurrentUrl().equals("https://experitest.com/");
         getScreenShot(driver);
+        return this;
     }
 }

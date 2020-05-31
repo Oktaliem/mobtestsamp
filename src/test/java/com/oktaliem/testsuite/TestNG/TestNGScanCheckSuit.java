@@ -1,4 +1,4 @@
-package com.oktaliem.testsuit;
+package com.oktaliem.testsuite.TestNG;
 
 import org.testng.annotations.Test;
 /**
@@ -9,7 +9,8 @@ public class TestNGScanCheckSuit extends  Preparation{
     @Test
     public void scanCheck(){
         user_is_on.menuPage().goToAdvanceActionsForm();
-        user_is_on.scanCheckPage().takeAPhoto();
-        user_is_on.scanCheckPage().ableToTakePhotoSuccessfully();
+        user_is_on.scanCheckPage()
+                .takeAPhoto()
+                .ableToTakePhotoSuccessfully();
     }
 }

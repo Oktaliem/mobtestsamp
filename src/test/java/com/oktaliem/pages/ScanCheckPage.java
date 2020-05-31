@@ -30,7 +30,7 @@ public class ScanCheckPage extends AdvanceActions{
     protected WebElement photoResult;
 
     @Step
-    public void takeAPhoto() {
+    public ScanCheckPage takeAPhoto() {
         scanCheckBtn.click();
         getScreenShot(driver);
         openCameraBtn.click();
@@ -40,10 +40,12 @@ public class ScanCheckPage extends AdvanceActions{
         waitUntilElementClickAble(doneBtn,60);
         doneBtn.click();
         getScreenShot(driver);
+        return this;
     }
 
     @Step
-    public void ableToTakePhotoSuccessfully() {
+    public ScanCheckPage ableToTakePhotoSuccessfully() {
         Assert.assertTrue(photoResult.isDisplayed());
+        return this;
     }
 }

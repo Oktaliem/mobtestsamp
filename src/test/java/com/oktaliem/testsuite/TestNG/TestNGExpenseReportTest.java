@@ -1,4 +1,4 @@
-package com.oktaliem.testsuit;
+package com.oktaliem.testsuite.TestNG;
 
 import org.testng.annotations.Test;
 
@@ -10,7 +10,8 @@ public class TestNGExpenseReportTest extends Preparation{
     @Test
     public void createExpenseReport(){
         user_is_on.menuPage().goToExpenseReportForm();
-        user_is_on.expenseReportPage().createExpenseReport();
-        user_is_on.expenseReportPage().expenseReportCreatedSuccessfully();
+        user_is_on.expenseReportPage()
+                .createExpenseReport()
+                .expenseReportCreatedSuccessfully();
     }
 }

@@ -29,7 +29,7 @@ public class MakePaymentPage extends BasePage {
     protected WebElement amount;
 
     @Step
-    public void inputPaymentInfo() {
+    public MakePaymentPage inputPaymentInfo() {
         String pm = testData.phoneNumber().cellPhone();
         String nm = testData.phoneNumber().cellPhone();
         waitUntilElementClickAble(phoneNum,60);
@@ -39,64 +39,72 @@ public class MakePaymentPage extends BasePage {
         selectCountryBtn.click();
         selectCountry(COUNTRY);
         getScreenShot(driver);
+        return this;
     }
 
     @Step
-    public void makePayment() {
+    public MakePaymentPage makePayment() {
         Assert.assertEquals(ctry.getText(), COUNTRY);
         sendPayBtn.click();
         getScreenShot(driver);
         clickConfirmationBtn("Yes");
         getScreenShot(driver);
+        return this;
     }
 
     @Step
-    public void checkIfPaymentIfSuccessful() {
+    public MakePaymentPage checkIfPaymentIfSuccessful() {
         staticWait(1000);
         menuPage = new MenuPage(driver);
         Assert.assertEquals(menuPage.balanceStatus.getText(), "Your balance is: 99.00$");
         getScreenShot(driver);
+        return this;
     }
 
     @Step
-    public void clickConfirmationBtn(String status) {
+    public MakePaymentPage clickConfirmationBtn(String status) {
         if (status.equals("Yes")) {
             driver.findElement(By.id("android:id/button1")).click();
         } else {
             driver.findElement(By.id("android:id/button2")).click();
         }
         getScreenShot(driver);
+        return this;
     }
 
     @Step
-    public void cancelMakePaymentForm() {
+    public MakePaymentPage cancelMakePaymentForm() {
         Assert.assertEquals(ctry.getText(), country);
         cancelBtn.click();
         getScreenShot(driver);
+        return this;
     }
 
     @Step
-    public void cancelMakePayment() {
+    public MakePaymentPage cancelMakePayment() {
         Assert.assertEquals(ctry.getText(), country);
         sendPayBtn.click();
         staticWait(1000);
         getScreenShot(driver);
         clickConfirmationBtn("No");
         getScreenShot(driver);
+        return this;
     }
 
     @Step
-    public void checkIfCancelPaymentFormIsSuccessful() {
+    public MakePaymentPage checkIfCancelPaymentFormIsSuccessful() {
         staticWait(1000);
         menuPage = new MenuPage(driver);
         Assert.assertEquals(menuPage.balanceStatus.getText(), ORIGINAL_BALANCE);
         getScreenShot(driver);
+        return this;
     }
 
     @Step
-    public void checkIfCancelPaymentIsSuccessful() {
+    public MakePaymentPage checkIfCancelPaymentIsSuccessful() {
         Assert.assertEquals(ctry.getText(), country);
         getScreenShot(driver);
+        return this;
     }
 
 }

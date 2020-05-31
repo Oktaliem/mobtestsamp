@@ -70,7 +70,7 @@ public class MortgageRequestPage extends BasePage {
     protected MobileElement typeofOccText;
 
     @Step
-    public void inputRequestForm() {
+    public MortgageRequestPage inputRequestForm() {
         name.sendKeys(testData.name().firstName());
         lastName.sendKeys(testData.name().lastName());
         age.sendKeys("45");
@@ -92,10 +92,11 @@ public class MortgageRequestPage extends BasePage {
         scroll(saveBtn, 3);
         saveBtn.click();
         getScreenShot(driver);
+        return this;
     }
 
     @Step
-    private void selectTypeOfLoan(String loadType) {
+    private MortgageRequestPage selectTypeOfLoan(String loadType) {
         int count = typeOfLoan.size();
         staticWait(1000);
         for (int i = 1; i < count; i++) {
@@ -108,10 +109,11 @@ public class MortgageRequestPage extends BasePage {
                 break;
             }
         }
+        return this;
     }
 
     @Step
-    private void selectNumberOfYears(String years) {
+    private MortgageRequestPage selectNumberOfYears(String years) {
         int count = numOfYears.size();
         staticWait(1000);
         for (int i = 1; i < count; i++) {
@@ -124,10 +126,11 @@ public class MortgageRequestPage extends BasePage {
                 break;
             }
         }
+        return this;
     }
 
     @Step
-    private void selectTypeOfOccupation(String occupation) {
+    private MortgageRequestPage selectTypeOfOccupation(String occupation) {
         int count = typeOfOccupation.size();
         staticWait(1000);
         for (int i = 1; i < count; i++) {
@@ -141,10 +144,11 @@ public class MortgageRequestPage extends BasePage {
                 break;
             }
         }
+        return this;
     }
 
     @Step
-    private void selectYearlyIncome(String income) {
+    private MortgageRequestPage selectYearlyIncome(String income) {
         int count = yearlyIncome.size();
         staticWait(1000);
         for (int i = 1; i < count; i++) {
@@ -158,13 +162,15 @@ public class MortgageRequestPage extends BasePage {
                 break;
             }
         }
+        return this;
     }
 
     @Step
-    public void checkIfRequestIfSuccessful() {
+    public MortgageRequestPage checkIfRequestIfSuccessful() {
         staticWait(1000);
         menuPage = new MenuPage(driver);
         Assert.assertEquals(menuPage.balanceStatus.getText(), "Your balance is: 100.00$");
         getScreenShot(driver);
+        return this;
     }
 }

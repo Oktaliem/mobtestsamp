@@ -37,33 +37,38 @@ public class MenuPage extends BasePage {
     protected WebElement balanceStatus;
 
     @Step
-    public void goToMakePaymentForm() {
+    public MenuPage goToMakePaymentForm() {
         makePayBtn.click();
         getScreenShot(driver);
+        return this;
     }
 
     @Step
-    public void goToMortgageRequestForm() {
+    public MenuPage goToMortgageRequestForm() {
         mortgageBtn.click();
         getScreenShot(driver);
+        return this;
     }
 
     @Step
-    public void goToExpenseReportForm() {
+    public MenuPage goToExpenseReportForm() {
         expenseBtn.click();
         getScreenShot(driver);
+        return this;
     }
 
     @Step
-    public void goToAdvanceActionsForm() {
+    public MenuPage goToAdvanceActionsForm() {
         advanceBtn.click();
         getScreenShot(driver);
+        return this;
     }
 
     @Step
-    public void logOut() {
+    public MenuPage logOut() {
         logoutBtn.click();
         getScreenShot(driver);
+        return this;
     }
 
 }
