@@ -5,8 +5,9 @@
 # Automated Mobile Testing Sample for Android and iOS with Appium
 
 ## Feature
+- SerenityBDD Framework vs TestNG + Allure Framework
 - Automated Device Capabilities detection.
-- Allure Report with Screenshot and Video Recording attachment.
+- Test HTML Report with Screenshot and Video Recording attachment.
 - Read a test code like you're speaking to yourself during testing.
 
 ## Android
