@@ -9,8 +9,6 @@ public class TestNGScanCheckSuit extends  Preparation{
     @Test
     public void scanCheck(){
         user_is_on.menuPage().goToAdvanceActionsForm();
-        user_is_on.scanCheckPage()
-                .takeAPhoto()
-                .ableToTakePhotoSuccessfully();
+        user_is_on.scanCheckPage().takeAPhoto().ableToTakePhotoSuccessfully();
     }
 }

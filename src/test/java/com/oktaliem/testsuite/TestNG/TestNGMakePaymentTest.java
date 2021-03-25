@@ -12,27 +12,18 @@ public class TestNGMakePaymentTest extends Preparation {
     @Test
     public void makePayment() {
         user_is_on.menuPage().goToMakePaymentForm();
-        user_is_on.makePaymentPage()
-                .inputPaymentInfo()
-                .makePayment()
-                .checkIfPaymentIfSuccessful();
+        user_is_on.makePaymentPage().inputPaymentInfo().makePayment().checkIfPaymentIfSuccessful();
     }
 
     @Test
     public void cancelMakePayment() {
         user_is_on.menuPage().goToMakePaymentForm();
-        user_is_on.makePaymentPage()
-                .inputPaymentInfo()
-                .cancelMakePayment()
-                .checkIfCancelPaymentIsSuccessful();
+        user_is_on.makePaymentPage().inputPaymentInfo().cancelMakePayment().checkIfCancelPaymentIsSuccessful();
     }
 
     @Test
     public void cancelMakePaymentForm() {
         user_is_on.menuPage().goToMakePaymentForm();
-        user_is_on.makePaymentPage()
-                .inputPaymentInfo()
-                .cancelMakePaymentForm()
-                .checkIfCancelPaymentFormIsSuccessful();
+        user_is_on.makePaymentPage().inputPaymentInfo().cancelMakePaymentForm().checkIfCancelPaymentFormIsSuccessful();
     }
 }

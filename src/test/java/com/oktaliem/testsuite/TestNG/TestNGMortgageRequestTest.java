@@ -12,9 +12,7 @@ public class TestNGMortgageRequestTest extends Preparation {
     @Test
     public void mortgageRequest() {
         user_is_on.menuPage().goToMortgageRequestForm();
-        user_is_on.mortgageRequestPage()
-                .inputRequestForm()
-                .checkIfRequestIfSuccessful();
+        user_is_on.mortgageRequestPage().inputRequestForm().checkIfRequestIfSuccessful();
     }
 
 }

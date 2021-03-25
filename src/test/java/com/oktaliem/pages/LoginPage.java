@@ -2,6 +2,7 @@ package com.oktaliem.pages;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
@@ -23,12 +24,15 @@ public class LoginPage extends BasePage {
     }
 
     @AndroidFindBy(id = "com.experitest.eribank:id/usernameTextField")
+    @iOSXCUITFindBy(accessibility = "usernameTextField")
     protected WebElement userName;
 
     @AndroidFindBy(id = "com.experitest.eribank:id/passwordTextField")
+    @iOSXCUITFindBy(accessibility = "passwordTextField")
     protected WebElement password;
 
     @AndroidFindBy(id = "com.experitest.eribank:id/loginButton")
+    @iOSXCUITFindBy(accessibility = "Login")
     protected WebElement loginBtn;
 
     @Step
