@@ -28,12 +28,13 @@ import java.nio.file.Paths;
 public class Preparation {
     AppiumDriver driver;
     User user_is_on;
+    public static DeviceInfo deviceInfo;
 
     @Step("Prepare Capabilities")
     @BeforeMethod
     public void prepareCapabilities() throws IOException, DeviceNotFoundException {
         try {
-            DeviceInfo deviceInfo = new DeviceInfoImpl(DeviceType.ANDROID);
+            deviceInfo = new DeviceInfoImpl(DeviceType.ANDROID);
             Device device = deviceInfo.getFirstDevice();
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("platformVersion", device.getProductVersion());
@@ -45,7 +46,7 @@ public class Preparation {
             capabilities.setCapability("automationName", "UiAutomator2");
             driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         } catch (Exception e) {
-            DeviceInfo deviceInfo = new DeviceInfoImpl(DeviceType.IOSSIMULATOR);
+            deviceInfo = new DeviceInfoImpl(DeviceType.IOSSIMULATOR);
             Device device = deviceInfo.getFirstDevice();
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("platformVersion", device.getProductVersion());

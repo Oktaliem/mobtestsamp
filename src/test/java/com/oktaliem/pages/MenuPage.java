@@ -3,6 +3,7 @@ package com.oktaliem.pages;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -26,9 +27,11 @@ public class MenuPage extends BasePage {
     protected WebElement expenseBtn;
 
     @AndroidFindBy(id = "com.experitest.eribank:id/AdvancedActionsButton")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Advanced Actions\"]")
     protected WebElement advanceBtn;
 
     @AndroidFindBy(id = "com.experitest.eribank:id/logoutButton")
+    @iOSXCUITFindBy(id = "Logout")
     protected WebElement logoutBtn;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget." +

@@ -3,6 +3,7 @@ package com.oktaliem.pages;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 /**
@@ -21,7 +22,8 @@ public class AdvanceActions extends BasePage {
     protected WebElement sendVoidRequestBtn;
 
     @AndroidFindBy(id = "com.experitest.eribank:id/OpenBrowserButton")
-    protected WebElement EriBankBrowserBtn;
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Eribank Website\"]")
+    protected WebElement eriBankBrowserBtn;
 
     @AndroidFindBy(id = "com.experitest.eribank:id/BackButton")
     protected WebElement backBtn;
