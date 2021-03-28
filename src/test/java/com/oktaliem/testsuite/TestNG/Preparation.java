@@ -6,7 +6,6 @@ import com.testinium.deviceinformation.DeviceInfoImpl;
 import com.testinium.deviceinformation.device.DeviceType;
 import com.testinium.deviceinformation.exception.DeviceNotFoundException;
 import com.testinium.deviceinformation.model.Device;
-import com.typesafe.config.ConfigException;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
