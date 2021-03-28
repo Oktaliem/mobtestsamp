@@ -22,6 +22,7 @@ public class MenuPage extends BasePage {
     protected WebElement makePayBtn;
 
     @AndroidFindBy(id = "com.experitest.eribank:id/mortageRequestButton")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Mortgage Request\"]")
     protected WebElement mortgageBtn;
 
     @AndroidFindBy(id = "com.experitest.eribank:id/expenseReportButton")
