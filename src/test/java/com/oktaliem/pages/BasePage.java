@@ -1,10 +1,12 @@
 package com.oktaliem.pages;
 
 import com.github.javafaker.Faker;
+import com.testinium.deviceinformation.device.DeviceType;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.appium.java_client.touch.offset.PointOption;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
@@ -21,8 +23,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import static com.oktaliem.testsuite.TestNG.Preparation.deviceInfo;
 import static io.appium.java_client.touch.WaitOptions.waitOptions;
 import static java.time.Duration.ofMillis;
+
 /**
  * @Author Okta Liem
  */
@@ -31,9 +35,11 @@ public class BasePage {
     Faker testData = new Faker();
 
     @AndroidFindBy(id = "com.experitest.eribank:id/nameTextField")
+    @iOSXCUITFindBy(accessibility = "nameTextField")
     protected WebElement name;
 
     @AndroidFindBy(id = "com.experitest.eribank:id/countryTextField")
+    @iOSXCUITFindBy(accessibility = "countryTextField")
     protected WebElement ctry;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget." +
@@ -41,12 +47,15 @@ public class BasePage {
     protected List<WebElement> countryList;
 
     @AndroidFindBy(id = "com.experitest.eribank:id/sendPaymentButton")
+    @iOSXCUITFindBy(accessibility = "Send Payment")
     protected WebElement sendPayBtn;
 
     @AndroidFindBy(id = "com.experitest.eribank:id/cancelButton")
+    @iOSXCUITFindBy(accessibility = "Cancel")
     protected WebElement cancelBtn;
 
     @AndroidFindBy(id = "com.experitest.eribank:id/countryButton")
+    @iOSXCUITFindBy(accessibility = "Select")
     protected WebElement selectCountryBtn;
 
     String country = "France";
@@ -102,17 +111,24 @@ public class BasePage {
 
     @Step
     public void selectCountry(String country) {
-        int count = countryList.size();
-        staticWait(1000);
-        for (int i = 1; i < count; i++) {
-            WebElement element = driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/" +
-                    "android.widget.LinearLayout/android.widget.FrameLayout[2]/android.widget.LinearLayout/" +
-                    "android.widget.ListView/android.widget.TextView[" + i + "]"));
-            if (element.getText().equals(country)) {
-                element.click();
-                break;
+        if (deviceInfo.equals(DeviceType.ANDROID)) {
+            int count = countryList.size();
+            staticWait(1000);
+            for (int i = 1; i < count; i++) {
+                WebElement element = driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/" +
+                        "android.widget.LinearLayout/android.widget.FrameLayout[2]/android.widget.LinearLayout/" +
+                        "android.widget.ListView/android.widget.TextView[" + i + "]"));
+                if (element.getText().equals(country)) {
+                    element.click();
+                    break;
+                }
             }
+        } else {
+            WebElement element = driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name=\"" + country + "\"]"));
+            waitAndFindElement(element);
+            element.click();
         }
+
     }
 
     @Nullable

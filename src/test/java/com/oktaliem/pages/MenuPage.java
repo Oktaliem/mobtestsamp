@@ -18,6 +18,7 @@ public class MenuPage extends BasePage {
     }
 
     @AndroidFindBy(id = "com.experitest.eribank:id/makePaymentButton")
+    @iOSXCUITFindBy(accessibility = "Make Payment")
     protected WebElement makePayBtn;
 
     @AndroidFindBy(id = "com.experitest.eribank:id/mortageRequestButton")
@@ -38,6 +39,7 @@ public class MenuPage extends BasePage {
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget." +
             "FrameLayout[2]/android.widget.LinearLayout/android.widget.ScrollView/android.widget.LinearLayout/" +
             "android.widget.LinearLayout/android.webkit.WebView/android.webkit.WebView/android.view.View")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"99.00$\"]")
     protected WebElement balanceStatus;
 
     @Step
