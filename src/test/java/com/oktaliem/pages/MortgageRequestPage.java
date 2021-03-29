@@ -121,7 +121,6 @@ public class MortgageRequestPage extends BasePage {
         scroll(saveBtn, 3);
         saveBtn.click();
         getScreenShot(driver); //7
-        System.out.println("inputRequestForm");
         return this;
     }
 
@@ -186,7 +185,6 @@ public class MortgageRequestPage extends BasePage {
             }
         } else {
             driver.findElement(By.id(occupation)).click();
-            System.out.println(occupation + " berhasil di klik");
         }
         return this;
     }
