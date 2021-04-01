@@ -17,7 +17,7 @@ $ mvn clean test -Dtest=${test_suit_name}
 
 ```
 
-###### Android Test Demo Video
+###### Android/iOS Test Demo Video
 Click here:
 
 ### Android
