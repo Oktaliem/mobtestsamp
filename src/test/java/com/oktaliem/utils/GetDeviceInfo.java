@@ -13,7 +13,7 @@ import java.io.IOException;
  */
 public class GetDeviceInfo {
     public static void main(String args[]) throws IOException, DeviceNotFoundException {
-        DeviceInfo deviceInfo = new DeviceInfoImpl(DeviceType.ALLANDIOSSIMULATOR);
+        DeviceInfo deviceInfo = new DeviceInfoImpl(DeviceType.ALL);
         if (deviceInfo.anyDeviceConnected()) {
             Device device = deviceInfo.getFirstDevice();
             System.out.println("1 Device Build: " + device.getBuildVersion());
