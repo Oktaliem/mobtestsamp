@@ -11,6 +11,9 @@
 - Read a test code like you're speaking to yourself during testing.
 - Cross platform methods
 
+## Architecture Diagram
+![Image](https://github.com/user-attachments/assets/86d29068-02c4-4de9-a9b8-b5266588a3e7)
+
 ## Android & iOS
 ```
 $ mvn clean test -Dtest=${test_suit_name}
